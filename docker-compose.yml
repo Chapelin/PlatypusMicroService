@@ -1,0 +1,29 @@
+version: '2'
+
+services:
+ consul:
+  image: consul
+  ports:
+   - "8500:8500"
+   - "8300:8300"
+   - "8600:8600"
+   - "8400:8400"
+   - "8302:8302"
+   - "8301:8301"
+  networks:
+   main:
+    aliases:
+     - consul
+
+ microservicesarticles:
+  image: microservicesarticles
+  build:
+    context: ./MicroServicesArticles
+    dockerfile: Dockerfile
+  networks:
+   main:
+    aliases:
+     - microservicesarticles
+
+networks:
+  main:
