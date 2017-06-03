@@ -25,5 +25,17 @@ services:
     aliases:
      - microservicesarticles
 
+ blogs:
+  image: blogs
+  ports:
+   - "80:80"
+  build:
+   context: ./Blogs
+   dockerfile: Dockerfile
+  networks:
+   main:
+    aliases:
+     - front
+
 networks:
   main:
